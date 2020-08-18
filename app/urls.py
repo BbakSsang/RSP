@@ -17,7 +17,14 @@ urlpatterns = [
     path('delete/<int:pk>', views.deleteOrder, name="delete"),
     path('update/<int:pk>', views.updateOrder, name="update"),
 
+    ##
+    path('get', views.get, name = "get"),
+   # path('', views.recipeBase, name = "recipeBase"),
+    path('ri', views.recipeIngredient, name = "recipeIngredient"),
+    path('rp', views.recipeProcess, name = "recipeProcess")
+]
+
+
 
     
 
-]

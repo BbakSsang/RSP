@@ -19,4 +19,6 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('app.urls')),
-]
+    #path('get', app.views.get, name = "get"),
+    #path('', app.views.recipeBase, name = "recipeBase"),
+   ]

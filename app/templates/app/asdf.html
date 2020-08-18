@@ -51,14 +51,18 @@
           </div>
     </form>
     <div class="container productlist">
-      {%for i in aa%}
-    <div class="card" style="width: 18rem;">
-      <img src="{{i.menueImageList}}" class="card-img-top">
-      <div class="card-body">
-        <p class="card-text">{{i.nameList}}</div>
+      이름:<br>
+      {%for i in recipeName%}
+        {{i}}
+      {%endfor%}
+      유형분류: <br>
+      {%for i in type%}
+          {{i}}
+      {%endfor%}
+      이미지: <br>
+      {%for i in menuImage%}
+          <img src="{{i}}" alt="">
+      {%endfor%}
     </div>
-    {%endfor%}
-  </div>
-
 </body>
 </html>
