@@ -15,7 +15,7 @@ from django.contrib.auth.models import Group
 from .filters import OrderFilter
 
 
-from .crawling import book_photo, book_title, book_writer, get_food
+from .crawling import book_photo, book_title, book_writer
 
 ##
 from xml.dom import minidom
