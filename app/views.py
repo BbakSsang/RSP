@@ -64,9 +64,7 @@ def customer(request,pk_test):
     
     return render(request, 'app/customer.html',context)
 
-def product(request):
-    context = {}
-    return render(request, 'app/product.html', context)
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
@@ -179,7 +177,7 @@ nameList = [] #레시피 이름
 levelList = [] #난이도
 menuImageList = [] #대표 이미지 url
 
-def recipeBase(request):
+def recipeBase():
     api_key = "cbd0c48c7d1cfa5e14f92af7a55ede7b057ca584fdc408b5996526bc55140552"
     # URL이 인코딩된 상태로 제공된 KEY이므로 Decoding이 필요
     api_key_decode = requests.utils.unquote(api_key)
@@ -203,7 +201,13 @@ def recipeBase(request):
         menuImageList.insert(i, blist[i].firstChild.data)
         levelList.insert(i, elist[i].firstChild.data)
         typeList.insert(i, xlist[i].firstChild.data)
-    return render(request, 'app\product.html', {'recipeName': nameList, 'menuImage': menuImageList, 'level': levelList , 'type': typeList})
+    allDic = {
+        'recipeName': nameList,
+        'menuImage': menuImageList,
+        'level': levleList
+    }
+    # return render(request, 'app\product.html', {'recipeName': nameList, 'menuImage': menuImageList, 'level': levelList , 'type': typeList})
+    return allDIc
 
 
 def recipeIngredient(request):
@@ -308,7 +312,9 @@ def product(request):
     global typeList
     typeList = []
 
+    allList = recipeBase()
+
     aa=[]
     for i in range(len(clist)):
       aa.append({"nameList":clist[i].firstChild.data,"menueImageList":blist[i].firstChild.data,"leveList":elist[i].firstChild.data,"typeList":xlist[i].firstChild.data})
-    return render(request, 'app\product.html', {'aa':aa})
+    return render(request, 'app\product.html', {'aa':aa })
