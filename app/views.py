@@ -204,10 +204,10 @@ def recipeBase():
     allDic = {
         'recipeName': nameList,
         'menuImage': menuImageList,
-        'level': levleList
+        'level': levelList
     }
     # return render(request, 'app\product.html', {'recipeName': nameList, 'menuImage': menuImageList, 'level': levelList , 'type': typeList})
-    return allDIc
+    return allDic
 
 
 def recipeIngredient(request):
@@ -242,7 +242,7 @@ def get(request):
     category.cooking_time = request.GET.get('cooking_time') #조리시간
     detail = Detail()
     detail.irdnt_nm = request.GET.get('irdnt_nm') #재료
-    
+    allList = recipeBase()
     alist = []
     global typeList
     global nameList
@@ -311,8 +311,6 @@ def product(request):
     levelList = []
     global typeList
     typeList = []
-
-    allList = recipeBase()
 
     aa=[]
     for i in range(len(clist)):

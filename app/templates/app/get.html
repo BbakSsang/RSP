@@ -6,19 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h4>이름: </h4>
-    {%for i in nameLast%}
-        {{i.nameLast}}
-        
-    {%endfor%}
-    <h4>난이도: </h4>
-    {%for i in levelLast%}
-        {{i.levelLast}}
-    {%endfor%}
-    <h4>메뉴이미지: </h4>
-    {%for i in menuImageLast%}
-        <img src="{{i.menuImageLast}}" alt="">
-    {%endfor%}
+    
+    {{nameLast}}
+    {{levelLast}}
+    {{menuImageLast}}
     
     <!-- {%load filters%}
     {%for i in 85|ranges%}
