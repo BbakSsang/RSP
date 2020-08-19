@@ -6,23 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    
+    {{nameLast.0}}
     {%for i in nameLast%}
         {{i}}
     {%endfor%}
+    <br>
     {%for i in levelLast%}
         {{i}}
     {%endfor%}
+    <br>
     {%for i in menuImageLast%}
         <img src="{{i}}" alt="">
     {%endfor%}
     
-    <!-- {%load filters%}
-    {%for i in 85|ranges%}
-        {{recipeName.i}}
-        {{menuImage.i}}
-        <img src="{{menuImage.i}}" alt="{{menuImage.i}}">
-    {%endfor%}
-     -->
+    
 </body>
 </html>

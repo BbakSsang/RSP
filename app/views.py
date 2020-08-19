@@ -285,10 +285,12 @@ def get(request):
         levelLast.insert(i, levelList[int(alist[i])])
         menuImageLast.insert(i, menuImageList[int(alist[i])])
         #유형 분류 가져오기
+   
 
     if not (category.level_nm or category.calorie or category.nation_nm or category.cooking_time or detail.irdnt_nm ):
         return render(request, 'app\error.html')
     return render(request, 'app\get.html', {'nameLast': nameLast, 'levelLast': levelLast, 'menuImageLast': menuImageLast})
+   
 
 
 def product(request):
