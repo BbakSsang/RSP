@@ -15,7 +15,7 @@ from django.contrib.auth.models import Group
 from .filters import OrderFilter
 
 
-from .crawling import book_photo, book_publisher, book_title, book_writer, get_food
+from .crawling import book_photo, book_title, book_writer, get_food
 
 ##
 from xml.dom import minidom
@@ -167,8 +167,7 @@ def bookFind(request):
     photo = book_photo(1,2)
     title = book_title(1,2)
     writer = book_writer(1,2)
-    publisher = book_publisher(1,2)
-    context = {'photo':photo, 'title':title, 'writer':writer,'publisher':publisher}
+    context = {'photo':photo, 'title':title, 'writer':writer}
     return render(request,'app/book.html',context)
 ###
 
