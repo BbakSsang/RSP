@@ -7,9 +7,15 @@
 </head>
 <body>
     
-    {{nameLast}}
-    {{levelLast}}
-    {{menuImageLast}}
+    {%for i in nameLast%}
+        {{i}}
+    {%endfor%}
+    {%for i in levelLast%}
+        {{i}}
+    {%endfor%}
+    {%for i in menuImageLast%}
+        <img src="{{i}}" alt="">
+    {%endfor%}
     
     <!-- {%load filters%}
     {%for i in 85|ranges%}
