@@ -1,11 +1,43 @@
-<!-- 연습용 -->
-
-
-
 {% extends 'app/main.html' %}
-
 {% block content %}
 
 
-책을 검색해보자
+
+    <table border = "1">
+        <tr>
+            <td>표지</td>
+            <td>제목</td>
+            <td>작가</td>
+            <td>출판사</td>
+        </tr>
+        <tr>
+            <td>
+                {% for i in photo %}
+                    <img src ="{{i}}" alt="이미지 없음">
+                {% endfor %}
+            </td>
+
+            <td>
+                {% for i in title %}
+                    {{i}}
+                {% endfor %}
+            </td>
+
+            <td>
+                {% for i in writer %}
+                    {{i}}
+                {% endfor %}
+            </td>
+
+            <td>
+                {% for i in publisher %}
+                    {{i}}
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    
+
+
+
 {% endblock %}

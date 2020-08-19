@@ -8,15 +8,16 @@
 <body>
     <h4>이름: </h4>
     {%for i in nameLast%}
-        {{i}}
+        {{i.nameLast}}
+        
     {%endfor%}
     <h4>난이도: </h4>
     {%for i in levelLast%}
-        {{i}}
+        {{i.levelLast}}
     {%endfor%}
     <h4>메뉴이미지: </h4>
     {%for i in menuImageLast%}
-        <img src="{{i}}" alt="">
+        <img src="{{i.menuImageLast}}" alt="">
     {%endfor%}
     
     <!-- {%load filters%}

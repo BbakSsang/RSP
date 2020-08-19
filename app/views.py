@@ -15,7 +15,8 @@ from django.contrib.auth.models import Group
 from .filters import OrderFilter
 
 
-from .crawling import get_food
+from .crawling import book_photo, book_publisher, book_title, book_writer, get_food
+
 ##
 from xml.dom import minidom
 import requests
@@ -24,8 +25,8 @@ import requests
 ##
 # Create your views here.
 def home(request):
-     context ={}   
-     return render(request, 'app/home.html',context)
+    context ={}   
+    return render(request, 'app/home.html',context)
 
 @login_required(login_url = 'login')
 @admin_only
@@ -42,7 +43,7 @@ def adminDashboard(request):
 
     myFilter = OrderFilter(request.GET, queryset=orders)
     orders = myFilter.qs
- 
+    print(orders)
 
     context = {'orders':orders,  'customers':customers,
     'total_customers':total_customers,'delivered':delivered, 
@@ -63,7 +64,9 @@ def customer(request,pk_test):
     
     return render(request, 'app/customer.html',context)
 
-
+def product(request):
+    context = {}
+    return render(request, 'app/product.html', context)
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
@@ -104,22 +107,22 @@ def registerPage(request):
 
 @unauthenticated_user
 def loginPage(request):
-	# if request.user.is_authenticated:
-	# 	return redirect('home')
-	# else:
-		if request.method == 'POST':
-			username = request.POST.get('username')
-			password = request.POST.get('password')
+   # if request.user.is_authenticated:
+   #    return redirect('home')
+   # else:
+      if request.method == 'POST':
+         username = request.POST.get('username')
+         password = request.POST.get('password')
 
-			user = authenticate(request, username=username, password=password)  
+         user = authenticate(request, username=username, password=password)  
 
-			if user is not None:
-				login(request, user)
-				return redirect('home')
-			else:
-				messages.info(request,'아이디 혹은 비밀번호가 잘못입력되었습니다!')
-		context  = {}
-		return render(request, 'app/login.html',context)
+         if user is not None:
+            login(request, user)
+            return redirect('home')
+         else:
+            messages.info(request,'아이디 혹은 비밀번호가 잘못입력되었습니다!')
+      context  = {}
+      return render(request, 'app/login.html',context)
 
 def logoutUser(request):
     logout(request)
@@ -128,16 +131,16 @@ def logoutUser(request):
 @login_required(login_url = 'login')
 @allowed_users(allowed_roles=['admin'])
 def createOrder(request):
-	form = OrderForm()
-	if request.method == 'POST':
-		#print('Printing POST:', request.POST)
-		form = OrderForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('/adminpage')
+   form = OrderForm()
+   if request.method == 'POST':
+      #print('Printing POST:', request.POST)
+      form = OrderForm(request.POST)
+      if form.is_valid():
+         form.save()
+         return redirect('/adminpage')
 
-	context= {'form':form}
-	return render(request, 'app/order_form.html',context)
+   context= {'form':form}
+   return render(request, 'app/order_form.html',context)
 
 @login_required(login_url = 'login')
 @allowed_users(allowed_roles=['admin'])
@@ -163,8 +166,12 @@ def deleteOrder(request, pk):
 
 
 def bookFind(request):
-    #food = get_food()
-    return render(request)
+    photo = book_photo(1,2)
+    title = book_title(1,2)
+    writer = book_writer(1,2)
+    publisher = book_publisher(1,2)
+    context = {'photo':photo, 'title':title, 'writer':writer,'publisher':publisher}
+    return render(request,'app/book.html',context)
 ###
 
 typeList = [] #유형분류
