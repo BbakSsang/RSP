@@ -22,7 +22,7 @@ urlpatterns = [
    # path('', views.recipeBase, name = "recipeBase"),
     path('ri', views.recipeIngredient, name = "recipeIngredient"),
     path('rp', views.recipeProcess, name = "recipeProcess")
-    #test
+    
 ]
 
 
