@@ -1,5 +1,6 @@
-{% include 'app/navbar.html' %}
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -18,7 +19,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <title>Document</title>
-
   <style>
     .detail {
       display: flex;
@@ -72,7 +72,7 @@
     }
   </style>
 </head>
-
+	{% include 'app/navbar.html' %}
 <body>
   <form class ="mt-3" action="{%url 'get'%}" method="GET">
     <div class="form-group container irdnt_nm">
@@ -125,6 +125,7 @@
       {%endfor%}
     </div>
   </div>
+
 </body>
 
 </html>

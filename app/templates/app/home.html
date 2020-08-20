@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <!--
 	Solid State by HTML5 UP
@@ -55,32 +56,6 @@
 
 <body class="is-preload">
 
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
-
-		<!-- Header -->
-		<header id="header" class="alt">
-			<h1><a href="index.html">Solid State</a></h1>
-			<nav>
-				<a href="#menu">Menu</a>
-			</nav>
-		</header>
-
-		<!-- Menu -->
-		<nav id="menu" >
-			<div class="inner" style="background-color: rgb(143, 159, 172);">
-				<h2>Menu</h2>
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="{%url 'product' %}">Products</a></li>
-					<li><a href="{%url 'book' %}">Books</a></li>
-					<li><a href="{% url 'login' %}">Log In</a></li>
-					<li><a href="{% url 'register' %}">Sign Up</a></li>
-				</ul>
-				<a href="#" class="close">Close</a>
-			</div>
-		</nav>
-
 		<!-- Banner -->
 		<section id="banner">
 			<div class="inner">
@@ -95,6 +70,7 @@
 		</section>
 
 		<!-- Wrapper -->
+		
 		<section id="wrapper">
 
 			<!-- One -->
@@ -187,12 +163,7 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="../static/assets/js/jquery.min.js"></script>
-	<script src="../static/assets/js/jquery.scrollex.min.js"></script>
-	<script src="../static/assets/js/browser.min.js"></script>
-	<script src="../static/assets/js/breakpoints.min.js"></script>
-	<script src="../static/assets/js/util.js"></script>
-	<script src="../static/assets/js/main.js"></script>
+	{% include 'app/navbar.html' %}
 
 </body>
 
