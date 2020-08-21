@@ -1,37 +1,65 @@
-{% extends 'app/main.html' %}
+
 {% block content %}
+<style>
+  img{
+    max-width: 320px;
+    max-height: 250px;
+  }
+  body{
+    background-color:#000066;
+  }
+</style>
+<div class="container" style="background-color:yellow">
 
+    <div class="container">
+        <div class="row">
+          {%for i in book%}
+          <div class="card col-sm-4" style="border: none;">
+            <a href="{{i.address}}">
+                <img src="{{i.photo}}" class="card-img-top scale" alt="..." >
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{i.title}}</h5>
+            </div>
+            <div class="card-a">
+              <hr>
+              <h3 style="text-align: right;">{{i.writer}}</h3>
+              <!-- <button type="button" class="btn btn-primary" href="{{i.address}}">Buy</button> -->
+            </div>
+          </div>
+          {%endfor%}
+        </div>`
+    </div>
 
-
-    <table border = "1">
-        <tr>
-            <td>표지</td>
-            <td>제목</td>
-            <td>작가</td>
-        </tr>
-        <tr>
-            <td>
-                {% for i in photo %}
-                    <img src ="{{i}}" alt="이미지 없음">
-                {% endfor %}
-            </td>
-
-            <td>
-                {% for i in title %}
-                    {{i}}
-                {% endfor %}
-            </td>
-
-            <td>
-                {% for i in writer %}
-                    {{i}}
-                {% endfor %}
-            </td>
-
-        </tr>
-    </table>
-    
-
-
+</div>
 
 {% endblock %}
+
+
+  </div> -->
+
+  <!-- <div class="container">
+    <div class="row">
+        {%for a in photo%}
+            <div class="card col-sm-4" style="border: none;">
+                <img src="{{a}}" class="card-img-top scale" alt="...">
+            </div>
+        {%endfor%}
+
+        {%for b in title%}
+            <div class="card col-sm-4" style="border: none;">
+                <h5 class="card-title">{{b}}</h5>
+            </div>
+        {%endfor%}
+
+        {%for c in writer%}
+            <div class="card col-sm-4" style="border: none;">
+                <p class="card-text">{{c}}</p>
+            </div>
+        {%endfor%}
+    </div>
+ </div> -->
+
+
+ <!--                                  gjsagshjdgjagfajhgs     -->
+ 

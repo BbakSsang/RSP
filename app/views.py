@@ -15,7 +15,7 @@ from django.contrib.auth.models import Group
 from .filters import OrderFilter
 
 
-from .crawling import book_photo, book_title, book_writer
+from .crawling import book_all
 
 ##
 from xml.dom import minidom
@@ -162,13 +162,9 @@ def deleteOrder(request, pk):
     context = {'item':order}
     return render(request, 'app/delete.html',context)
 
-
 def bookFind(request):
-    photo = book_photo(1,2)
-    title = book_title(1,2)
-    writer = book_writer(1,2)
-    context = {'photo':photo, 'title':title, 'writer':writer}
-    return render(request,'app/book.html',context)
+    book = book_all(2,3)
+    return render(request,'app/book.html',{'book':book })
 ###
 
 typeList = [] #유형분류
