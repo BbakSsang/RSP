@@ -4,37 +4,40 @@
 {% include 'app/status.html' %}
 
 <br>
-
-<div class="row">
-	<div class="col-md-5">
-		<h5>고객</h5>
-		<hr>
-		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create' %}">고객 추가</a>	
-			<table class="table table-sm">
-				<tr>
-					<th></th>
-					<th>Customer</th>
-					<th>Phone</th>
-				</tr>
-				{% for i in customers %}
+<div class="col">
+	<div class="row container-fluid">
+		<div class="col-7" >
+			<h3>고객</h5>
+			<hr>
+			<div class="card card-body">
+				<a class="btn btn-primary  btn-sm btn-block dbtn" href="{% url 'create' %}">고객 추가</a>
+				<table class="table table-sm">
+					<tr>
+						<th></th>
+						<th>Customer</th>
+						<th>Phone</th>
+					</tr>
+					{% for i in customers %}
 					<tr>
 						<td><a class="btn btn-sm btn-info" href="{% url 'customer' i.id %}">View</a></td>
 						<td>{{i.name}}</td>
 						<td>{{i.phone}}</td>
 					</tr>
-				{% endfor %}
-			</table>
+					{% endfor %}
+				</table>
+			</div>
 		</div>
-	</div>
+		<div class="col"></div>
+		<div class="col-4">
+			<h5 class="mb-5">총 주문</h5>
+			<hr>
+			<form method="get">
+				{{myFilter.form}}
+				<button class="btn btn-primary mt-5 dbtn" type="submit">Search</button>
+		</div>
 
-	<div class="col-md-7">
-		<h5>총 주문</h5>
-		<form method="get">
-			{{myFilter.form}}
-		<button class="btn btn-primary" type="submit">Search</button>
-		<hr>
-		<div class="card card-body">
+<div class="row container-fluid mt-5 ml-3" >
+		<div class="card card-body" >
 			<table class="table table-sm">
 				<tr>
 					<th>고객명</th>
@@ -44,7 +47,10 @@
 					<th>Update</th>
 					<th>Remove</th>
 				</tr>
-				{% for j in orders %}
+			</table>
+			<div >
+				<table class="table table-sm">
+					{% for j in orders %}
 					<tr>
 						<td>{{name}}</td>
 						<td>{{j.product}}</td>
@@ -52,12 +58,40 @@
 						<td>{{j.status}}</td>
 						<td><a class="btn btn-sm btn-info" href="/delete/{{j.id}}">삭제</a></td>
 						<td><a class="btn btn-sm btn-danger" href="/update/{{j.id}}">수정</a></td>
-						</tr>
-				{% endfor %}
-				
-			</table>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
 		</div>
 	</div>
 
+
+	</div>
+	
+	<!-- <div class="row-md-5">
+		<h5>고객</h5>
+			<hr>
+			<div class="card card-body">
+				<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create' %}">고객 추가</a>	
+				<table class="table table-sm">
+					<tr>
+						<th></th>
+						<th>Customer</th>
+						<th>Phone</th>
+					</tr>
+					{% for i in customers %}
+						<tr>
+							<td><a class="btn btn-sm btn-info" href="{% url 'customer' i.id %}">View</a></td>
+							<td>{{i.name}}</td>
+							<td>{{i.phone}}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div> 
+	</div> -->
+
+
 </div>
+
+
 {% endblock %}

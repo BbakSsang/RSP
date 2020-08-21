@@ -1,38 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <title>Document</title>
         <style>
-            .row{
-                display: flex;
-                justify-content: space-between;
-            }
+            .scale {
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transition: all 0.3s ease-in-out;
+                /* 부드러운 모션을 위해 추가*/
+              }
+              .scale:hover {
+                transform: scale(1.02);
+                -webkit-transform: scale(1.02);
+                -moz-transform: scale(1.02);
+                -ms-transform: scale(1.02);
+                -o-transform: scale(1.02);
+              }
+              .detail{
+                  color:black;
+              }
+              .detail:hover{
+                  text-decoration: none;
+              }
+              @font-face {
+                font-family: 'Recipekorea';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+              }
+          
+              h5 {
+                font-family: 'Recipekorea';
+              }
+          
+              @font-face {
+                font-family: 'BBTreeGR';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+              }
+              p{
+                font-family: 'BBTreeGR';
+              }
         </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-          {%for i in test%}
-            <a href="detail?foodName={{i.0}}">
-                <div class="card col-sm-4" style="border: none;">
-                    <img src="{{i.2}}" class="card-img-top scale" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">{{i.0}}</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <p class="card-text"><small class="text-muted">{{i.1}}</small></p>
+    {%if test3%}
+        <div class="container">
+            <div class="row">
+            {%for i in test3%}
+                    <div class="card col-sm-4" style="border: none;">
+                        <a class="detail" href="detail?pk={{i.4}}">
+                            <img src="{{i.2}}" class="card-img-top scale" alt="..." style="width: 350px; height:350px">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-weight: bold;">{{i.0}}</h5>
+                                <p class="card-text">{{i.3}}</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <p class="card-text"><small class="text-muted">{{i.1}}</small></p>
+                            </div>
+                        </a>
                     </div>
+            {%endfor%}
+            </div>
+    {%else%}
+        {%if test2%}
+            <div class="container">
+                <div class="row">
+                {%for i in test2%}
+                        <div class="card col-sm-4" style="border: none;">
+                            <a class="detail" href="detail?pk={{i.4}}">
+                                <img src="{{i.2}}" class="card-img-top scale" alt="..." style="width: 350px; height:350px">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-weight: bold;">{{i.0}}</h5>
+                                    <!--재료 받아오기 -->
+                                    <p class="card-text">{{i.3}}</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <p class="card-text"><small class="text-muted">{{i.1}}</small></p>
+                                </div>
+                            </a>
+                        </div>
+                {%endfor%}
                 </div>
-            </a>
-          {%endfor%}
-        </div>
-      </div>
+        {%endif%}
+        {%if test%}
+            <div class="container">
+                <div class="row">
+                {%for i in test%}
+                        <div class="card col-sm-4" style="border: none;">
+                            <a class="detail" href="detail?pk={{i.4}}">
+                                <img src="{{i.2}}" class="card-img-top scale" alt="..." style="width: 350px; height:350px">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-weight: bold;">{{i.0}}</h5>
+                                    <!--재료 받아오기 -->
+                                    <p class="card-text">{{i.3}}</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <p class="card-text"><small class="text-muted">{{i.1}}</small></p>
+                                </div>
+                            </a>
+                        </div>
+                {%endfor%}
+                </div>
+        {%endif%}
+    {%endif%}
+
 </body>
 </html>

@@ -1,42 +1,84 @@
-
+{% extends 'app/main.html' %}
 {% block content %}
 <style>
   img{
-    max-width: 320px;
+    max-width: 400x;
     max-height: 250px;
+    overflow: hidden;
   }
   body{
     background-color:#000066;
   }
-</style>
-<div class="container" style="background-color:yellow">
+  .aa {
+    transform: scale(1);
+    -webkit-transform: scale(1)!important;
+    -moz-transform: scale(1)!important;
+    -ms-transform: scale(1)!important;
+    -o-transform: scale(1)!important;
+    transition: all 0.3s ease-in-out!important;
+    /* 부드러운 모션을 위해 추가*/
+  }
 
-    <div class="container">
-        <div class="row">
+  .aa:hover {
+    transform: scale(1.2) !important;
+    -webkit-transform: scale(1.2)!important;
+    -moz-transform: scale(1.2)!important;
+    -ms-transform: scale(1.22)!important;
+    -o-transform: scale(1.22)!important;
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <p> </p>
+  </div>
+</div>
+<div class="container">
+
+    <div class="container-fluid mb-5">
+        <div class="row mb-5">
           {%for i in book%}
-          <div class="card col-sm-4" style="border: none;">
+          <div class="container-fluid col-4"style="mt-3">
+              <div class="card " style="border: none; color:black;">
             <a href="{{i.address}}">
-                <img src="{{i.photo}}" class="card-img-top scale" alt="..." >
+                <img src="{{i.photo}}" class="card-img-top aa" alt="..." >
             </a>
-            <div class="card-body">
-              <h5 class="card-title">{{i.title}}</h5>
+            <div class="card-body" style="height: 10px;">
+              <h5 style="color:black;"class="card-title">{{i.title}}</h5>
             </div>
+            
             <div class="card-a">
               <hr>
-              <h3 style="text-align: right;">{{i.writer}}</h3>
+              <h3 style="text-align: right; color:black">{{i.writer}}</h3>
               <!-- <button type="button" class="btn btn-primary" href="{{i.address}}">Buy</button> -->
-            </div>
+            </div></div>
+            <br><br><br>
           </div>
+          <br><br>  
           {%endfor%}
-        </div>`
+        </div>
     </div>
-
+  
+<</div>
+<!--Zoom effect-->
+<div class="view overlay zoom">
+  <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(131).jpg" class="img-fluid " alt="smaple image">
+  <div class="mask flex-center">
+      <p class="white-text">Zoom effect</p>
+  </div>
 </div>
 
+<div class="view overlay">
+  <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20(3).jpg" class="img-fluid " alt="">
+   <div class="mask rgba-red-strong">
+
+  </div>
+</div>>
 {% endblock %}
 
+<!-- {% include 'app/navbar.html' %}
 
-  </div> -->
+
+  </div> --> -->
 
   <!-- <div class="container">
     <div class="row">

@@ -26,16 +26,25 @@
 					</header>
 
 				<!-- Menu -->
-					<nav id="menu">
+					<nav id="menu" >
 						<div class="inner">
 							<h2>Menu</h2>
 							<ul class="links">
 								<li><a href="{%url 'home' %}">Home</a></li>
 								<li><a href="{%url 'product' %}">Products</a></li>
 								<li><a href="{%url 'book' %}">Books</a></li>
+		
+								{%if context == "1"%}
 								<li><a href="{% url 'login' %}">Log In</a></li>
+								{%else%}
+								<li><a href="{% url 'logout' %}">Log Out</a></li>
+								{%endif%}
+					
 								<li><a href="{% url 'register' %}">Sign Up</a></li>
-							</ul>
+								<li><a href="{% url 'user' %}">주문</a></li>
+                       		 	<li><a href="{% url 'adminpage' %}">관리자</a></li>
+								
+							 </ul>
 							<a href="#" class="close">Close</a>
 						</div>
 					</nav>

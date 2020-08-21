@@ -40,11 +40,18 @@
 		*{
 			font-family: 'Cafe24Danjunghae';
 
-		}				
+		}		
+		.dbtn{
+			background: #45558D;
+			border: none;
+		}		
+		.dbtn:hover{
+			background-color:  #43507e;
+		}
 	</style>
+
 </head>
 <body>
-    {% include 'app/navbar.html' %}
 
     {% block content %}
 	
@@ -54,3 +61,4 @@
 
 </body>
 </html>
+{% include 'app/navbar.html' %}
