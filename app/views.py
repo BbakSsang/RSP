@@ -285,13 +285,17 @@ def get(request):
         levelLast.insert(i, levelList[int(alist[i])])
         menuImageLast.insert(i, menuImageList[int(alist[i])])
         #유형 분류 가져오기
-   
+
+    
+    test = [["null" for col in range(3)]for row in range(len(nameLast))]
+    for i in range(len(nameLast)):
+        test[i][0] = nameLast[i]
+        test[i][1] = levelLast[i]
+        test[i][2] = menuImageLast[i]
 
     if not (category.level_nm or category.calorie or category.nation_nm or category.cooking_time or detail.irdnt_nm ):
         return render(request, 'app\error.html')
-    return render(request, 'app\get.html', {'nameLast': nameLast, 'levelLast': levelLast, 'menuImageLast': menuImageLast})
-   
-
+    return render(request, 'app\get.html', {'test': test})
 
 def product(request):
     api_key = "cbd0c48c7d1cfa5e14f92af7a55ede7b057ca584fdc408b5996526bc55140552"
