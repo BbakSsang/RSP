@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-    
+ 
 <head>
 	<title>Login</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-
-
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<!-- 스위트 테스트 링크 위 -->
+	
 	<style>
 		body,
 		html {
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: blueviolet !important;
+		
 		}
 		.user_card {
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: blue;
+			background: #45558D;/*#45558D;*/
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -39,31 +41,31 @@
 
 		#form-title{
 			color: #fff;
-			
+			font-size: 2rem;
 		}
 
 		.login_btn {
 			width: 100%;
-			background: #33ccff !important;
-			color: white !important;
+			background: #45558D;
+			color: white;
 		}
 		.login_btn:focus {
-			box-shadow: none !important;
-			outline: 0px !important;
+			box-shadow: none;
+			outline: 0px;
 		}
 		.login_container {
 			padding: 0 2rem;
 		}
-		.input-group-text {
-			background: #f7ba5b !important;
-			color: white !important;
-			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;
-		}
+		/*.input-group-text {
+			background: #ffffff7a;
+			color: rgb(209, 203, 124);
+			border: 0;
+			border-radius: 0.25rem 0 0 0.25rem;
+		}*/
 		.input_user,
 		.input_pass:focus {
-			box-shadow: none !important;
-			outline: 0px !important;
+			box-shadow: none;
+			outline: 0px;
 		}
 
 		#messages{
@@ -78,9 +80,9 @@
 
 </head>
 <body>
-	<div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
+	<div class="container h-100" >
+		<div class="d-flex justify-content-center h-100" >
+			<div class="user_card" >
 				<div class="d-flex justify-content-center">
 
 
@@ -90,15 +92,11 @@
 					<form method="POST" action="">
 						{% csrf_token %}
 						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
+					
 							<input type="text" name="username" placeholder="Username..." class="form-control">
 						</div>
 						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
+						
 								<input type="password" name="password" placeholder="Password..." class="form-control" >
 						</div>
 
@@ -111,9 +109,11 @@
 				{%for message in messages%}
 					<p id="messages">{{message}}</p>
 				{%endfor%}
+
+				
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						계정이 없으신가요? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+						계정이 없으신가요? <a href="{% url 'register' %}" class="ml-2" >Sign Up</a>
 					</div>
 			
 				</div>
@@ -121,5 +121,5 @@
 		</div>
 	</div>
 </body>
-
+{% include 'app/navbar.html' %}
 </html>	

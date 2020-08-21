@@ -20,7 +20,7 @@ from .crawling import book_photo, book_title, book_writer
 ##
 from xml.dom import minidom
 import requests
-
+##
 
 ##
 # Create your views here.
