@@ -25,8 +25,27 @@ import requests
 ##
 # Create your views here.
 def home(request):
-    context ={}   
+    context = login_check(request)  
+    # if request.user.is_authenticated():
+    #     print("asd")
+    # else:
+    #     print("sss")
+    #print(request.user)
+    
+   
+    context = {'check' : login_check(request) }
     return render(request, 'app/home.html',context)
+
+def login_check(request):
+    context = {}
+    if(str(request.user) == "AnonymousUser"):
+        context = '2'
+    elif(str(request.user) == "admin"):
+        context = '3'
+    else:
+        context = '1'
+    return context
+
 
 @login_required(login_url = 'login')
 @admin_only
@@ -48,7 +67,7 @@ def adminDashboard(request):
     context = {'orders':orders,  'customers':customers,
     'total_customers':total_customers,'delivered':delivered, 
     'riding':riding,'item_ready':item_ready, 'total_orders':total_orders,
-    'myFilter':myFilter,}
+    'myFilter':myFilter,'check' : login_check(request) }
     
     return render(request, 'app/dashboard.html',context)
 
@@ -60,7 +79,7 @@ def customer(request,pk_test):
     order_count = orders.count()
 
     context ={'customer':customer,'orders':orders,
-    'order_count':order_count}
+    'order_count':order_count,'check' : login_check(request) }
     
     return render(request, 'app/customer.html',context)
 
@@ -84,7 +103,7 @@ def userPage(request):
     
     context = {'orders':orders, 'myFilter':myFilter,
     'delivered':delivered,'riding':riding,'item_ready':item_ready,
-    'total_orders':total_orders, }
+    'total_orders':total_orders, 'check' : login_check(request) }
 
     return render(request, 'app/user.html',context)
 
@@ -100,7 +119,7 @@ def registerPage(request):
 
             return redirect('login')
     
-    context = {'form':form}
+    context = {'form':form,'check' : login_check(request) }
     return render(request, 'app/register.html',context)
 
 @unauthenticated_user
@@ -119,7 +138,7 @@ def loginPage(request):
             return redirect('home')
          else:
             messages.info(request,'아이디 혹은 비밀번호가 잘못입력되었습니다!')
-      context  = {}
+      context  = {'check' : login_check(request) }
       return render(request, 'app/login.html',context)
 
 def logoutUser(request):
@@ -137,7 +156,7 @@ def createOrder(request):
          form.save()
          return redirect('/adminpage')
 
-   context= {'form':form}
+   context= {'form':form,'check' : login_check(request) }
    return render(request, 'app/order_form.html',context)
 
 @login_required(login_url = 'login')
@@ -159,7 +178,7 @@ def deleteOrder(request, pk):
     if request.method == "POST":
         order.delete()
         return redirect('/')
-    context = {'item':order}
+    context = {'item':order,'check' : login_check(request) }
     return render(request, 'app/delete.html',context)
 
 def bookFind(request):
@@ -583,9 +602,9 @@ def get(request):
     
     if key == True and not(finalLast):
         error_msg = "등록된 레시피가 없습니다."
-        return render(request, 'app\error.html', {'error_msg': error_msg})
+        return render(request, 'app/error.html', {'error_msg': error_msg})
     else:
-        return render(request, 'app\get.html', {'test': test,'test2': test2, 'test3': test3, 'pkLast3': pkLast3})
+        return render(request, 'app/get.html', {'test': test,'test2': test2, 'test3': test3, 'pkLast3': pkLast3})
 
 
 
@@ -618,7 +637,7 @@ def product(request):
       aa.append({"nameList":clist[i].firstChild.data,"menueImageList":blist[i].firstChild.data
       ,"leveList":elist[i].firstChild.data,"typeList":xlist[i].firstChild.data
       , "summaryList": sslist[i].firstChild.data})
-    return render(request, 'app\product.html', {'aa':aa })
+    return render(request, 'app/product.html', {'aa':aa })
 
 def detail(request):
     pk = request.GET["pk"]
@@ -672,6 +691,6 @@ def detail(request):
     for i in range(len(pIdList)):
         if pIdList[i] == pk:
             pLast.insert(i, plist[i])
-    return render(request, 'app\detail.html', {'process': pLast, 'recipeName': nList[int(pk) -1],
+    return render(request, 'app/detail.html', {'process': pLast, 'recipeName': nList[int(pk) -1],
         'menuImage': iList[int(pk)-1], 'level': lList[int(pk)-1], 'summary': sList[int(pk) -1],
         'ingLast': ingLast})
