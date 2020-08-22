@@ -182,7 +182,7 @@ def deleteOrder(request, pk):
 
 def bookFind(request):
     book = book_all(2,3)
-    return render(request,'app/book.html',{'book':book })
+    return render(request,'app/book.html',{'book':book,'check' : login_check(request),'name': str(request.user) })
 ###
 
 typeList = [] #유형분류
