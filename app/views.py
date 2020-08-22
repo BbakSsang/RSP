@@ -235,7 +235,7 @@ def recipeIngredient(request):
     alist = []
     for i in range(len(clist)):
         alist.insert(i, clist[i].firstChild.data)
-    return render(request, 'app\get.html', {'ingredient': alist})
+    return render(request, 'app\get.html', {'ingredient': alist,'check' : login_check(request)})
 
 def recipeProcess(request):
     api_key = "cbd0c48c7d1cfa5e14f92af7a55ede7b057ca584fdc408b5996526bc55140552"
@@ -246,7 +246,7 @@ def recipeProcess(request):
     alist = []
     for i in range(len(clist)):
         alist.insert(i, clist[i].firstChild.data)
-    return render(request, 'app\get.html', {'cookingProcess': alist})
+    return render(request, 'app\get.html', {'cookingProcess': alist,'check' : login_check(request)})
 
 def get(request):
     category = Category()
@@ -310,7 +310,7 @@ def get(request):
 
     if not (category.level_nm or category.calorie or category.nation_nm or category.cooking_time or detail.irdnt_nm ):
         return render(request, 'app\error.html')
-    return render(request, 'app\get.html', {'test': test})
+    return render(request, 'app\get.html', {'test': test,'check' : login_check(request)})
 
 def product(request):
     api_key = "cbd0c48c7d1cfa5e14f92af7a55ede7b057ca584fdc408b5996526bc55140552"
@@ -331,11 +331,10 @@ def product(request):
     levelList = []
     global typeList
     typeList = []
-
     aa=[]
     for i in range(len(clist)):
       aa.append({"nameList":clist[i].firstChild.data,"menueImageList":blist[i].firstChild.data,"leveList":elist[i].firstChild.data,"typeList":xlist[i].firstChild.data})
-    return render(request, 'app\product.html', {'aa':aa })
+    return render(request, 'app\product.html', {'aa':aa,'check' : login_check(request) })
 ###
 
 typeList = [] #유형분류
@@ -598,13 +597,13 @@ def get(request):
 
     if not (category.level_nm or category.nation_nm):
         error_msg = "조건을 입력해주세요"
-        return render(request, 'app\error.html',{'error_msg': error_msg} )
+        return render(request, 'app\error.html',{'error_msg': error_msg,'check' : login_check(request)} )
     
     if key == True and not(finalLast):
         error_msg = "등록된 레시피가 없습니다."
-        return render(request, 'app/error.html', {'error_msg': error_msg})
+        return render(request, 'app/error.html', {'error_msg': error_msg,'check' : login_check(request)})
     else:
-        return render(request, 'app/get.html', {'test': test,'test2': test2, 'test3': test3, 'pkLast3': pkLast3})
+        return render(request, 'app/get.html', {'test': test,'test2': test2, 'test3': test3, 'pkLast3': pkLast3,'check' : login_check(request)})
 
 
 
@@ -637,7 +636,7 @@ def product(request):
       aa.append({"nameList":clist[i].firstChild.data,"menueImageList":blist[i].firstChild.data
       ,"leveList":elist[i].firstChild.data,"typeList":xlist[i].firstChild.data
       , "summaryList": sslist[i].firstChild.data})
-    return render(request, 'app/product.html', {'aa':aa })
+    return render(request, 'app/product.html', {'aa':aa,'check' : login_check(request) })
 
 def detail(request):
     pk = request.GET["pk"]
@@ -665,7 +664,7 @@ def detail(request):
             pLast.insert(i, plist[i])
     return render(request, 'app\detail.html', {'process': pLast, 'recipeName': nList[int(pk) -1],
         'menuImage': iList[int(pk)-1], 'level': lList[int(pk)-1], 'summary': sList[int(pk) -1],
-        'ingLast': ingLast})
+        'ingLast': ingLast,'check' : login_check(request)})
 
 def detail(request):
     pk = request.GET["pk"]
@@ -693,4 +692,4 @@ def detail(request):
             pLast.insert(i, plist[i])
     return render(request, 'app/detail.html', {'process': pLast, 'recipeName': nList[int(pk) -1],
         'menuImage': iList[int(pk)-1], 'level': lList[int(pk)-1], 'summary': sList[int(pk) -1],
-        'ingLast': ingLast})
+        'ingLast': ingLast,'check' : login_check(request)})
