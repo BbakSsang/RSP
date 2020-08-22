@@ -90,6 +90,37 @@
     .ff~p{
       font-size: small;
     }
+    .wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .button {
+      width: 140px;
+      height: 45px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 500;
+      color: #000;
+      background-color: #fff;
+      border: none;
+      border-radius: 45px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      outline: none;
+      }
+    
+    .button:hover {
+      background-color: #2EE59D;
+      box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+      color: #fff;
+      transform: translateY(-7px);
+    }
   </style>
 </head>
 
@@ -112,7 +143,7 @@
       <input class="form-control" type="text" name="irdnt_nm" style="opacity: 0;"placeholder="재료들을 입력해주세요">
     </div>
     <div class="form-group container detail">
-      <select class="form-control" name="nation_nm">
+      <select class="form-control mt-1" name="nation_nm">
         <option value selected disabled>유형분류</option>
         <option>한식</option>
         <option>일본</option>
@@ -122,15 +153,16 @@
         <option>이탈리아</option>
         <option>동남아시아</option>
       </select>
-      <select class="form-control" name="level_nm">
+      <select class="form-control mt-1" name="level_nm">
         <option value selected disabled>난이도</option>
         <option>초보환영</option>
         <option>보통</option>
         <option>어려움</option>
       </select>
-     
-      <button type="submit" class="btn btn-primary col-2 " style="margin-left:10px">
-        <i class="fas fa-search"></i></button>
+     <div class = "wrap mt-0">
+      <button type="submit" class="col-2 button d-flex justify-content-center pt-1" style="background-color: coral;">
+        <i class="fas fa-search mt-3"></i></button>
+        </div>
     </div>
   </form>
 
