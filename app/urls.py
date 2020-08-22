@@ -23,7 +23,7 @@ urlpatterns = [
     # path('ri', views.recipeIngredient, name = "recipeIngredient"),
     # path('rp', views.recipeProcess, name = "recipeProcess")
     path('detail', views.detail, name = "detail"),
-    path('test/',views.jjim)
+    path('get_Jim/',views.jjim)
     
 ]
 
