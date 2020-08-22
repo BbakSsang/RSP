@@ -17,6 +17,12 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <title>Document</title>
         <style>
+          @font-face {
+            font-family: 'Recipekorea';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
             .scale {
                 transform: scale(1);
                 -webkit-transform: scale(1);
@@ -59,24 +65,73 @@
               p{
                 font-family: 'BBTreeGR';
               }
+              .bc{
+                background-color: 
+                #D0D2D2;
+                display:block;
+                max-width: 100%;
+
+              }
+              .ist{
+                width: 100%;
+                height: 15em;
+              }
+              .ff{
+                color: black;
+                font-family: 'Recipekorea';
+              }
+              .ff~p{
+                font-size: small;
+              }
+              .sma{
+                font-size:smaller;
+                margin-block-end: 0%;
+
+              }
+              p:hover{
+                color:coral;
+              }
+              .inner{
+                background-color: white;
+              }
+              .cardbg{
+                background: #D0D2D2;
+              }
         </style>
 </head>
 <body>
+  <div class="container ml-0 mr-0 bc ff">
+    <div class="logo">
+      <svg width="3em" height="3em" viewBox="0 0 16 16" class="icon bi bi-door-closed-fill mt-2 ff"
+      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+        d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+      </svg>
+  </div>
+  <h2 class="mb-0 ff" style="font-family: 'GmarketSansBold';">R.R.Company</h2>
+    <p class="mb-0 ff">Recipes . Request . Company</p>
+    
+  </div>
+  <hr class= "mt-0">
     {%if test3%}
         <div class="container">
             <div class="row">
             {%for i in test3%}
-                    <div class="card col-sm-4" style="border: none;">
+                    <div class="card col-sm-4 pr-4 cardbg" style="border: none;">
+                      <div class="inner mt-4">
                         <a class="detail" href="detail?pk={{i.4}}">
-                            <img src="{{i.2}}" class="card-img-top scale" alt="..." style="width: 350px; height:350px">
-                            <div class="card-body">
+                            <img src="{{i.2}}" class="card-img-top scale ist" alt="...">
+                            <div class="card-body ff">
                                 <h5 class="card-title" style="font-weight: bold;">{{i.0}}</h5>
                                 <p class="card-text">{{i.3}}</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                <p class="card-text"><small class="text-muted">{{i.1}}</small></p>
+                                <p class="card-text sma"><small class="text-muted sma">Last updated 3 mins ago</small></p>
+                                <p class="card-text"><small class="text-muted sma">{{i.1}}</small></p>
                             </div>
+                          </div>
                         </a>
+                        
                     </div>
+                    
             {%endfor%}
             </div>
     {%else%}
@@ -84,15 +139,15 @@
             <div class="container">
                 <div class="row">
                 {%for i in test2%}
-                        <div class="card col-sm-4" style="border: none;">
+                        <div class="card col-sm-4 pr-4" style="border: none;">
                             <a class="detail" href="detail?pk={{i.4}}">
-                                <img src="{{i.2}}" class="card-img-top scale" alt="..." style="width: 350px; height:350px">
+                                <img src="{{i.2}}" class="card-img-top scale ist" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title" style="font-weight: bold;">{{i.0}}</h5>
                                     <!--재료 받아오기 -->
                                     <p class="card-text">{{i.3}}</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <p class="card-text"><small class="text-muted">{{i.1}}</small></p>
+                                    <p class="card-text"><small class="text-muted sma">Last updated 3 mins ago</small></p>
+                                    <p class="card-text"><small class="text-muted sma">{{i.1}}</small></p>
                                 </div>
                             </a>
                         </div>
@@ -103,15 +158,15 @@
             <div class="container">
                 <div class="row">
                 {%for i in test%}
-                        <div class="card col-sm-4" style="border: none;">
+                        <div class="card col-sm-4 pr-4" style="border: none;">
                             <a class="detail" href="detail?pk={{i.4}}">
-                                <img src="{{i.2}}" class="card-img-top scale" alt="..." style="width: 350px; height:350px">
+                                <img src="{{i.2}}" class="card-img-top scale ist" alt="..." >
                                 <div class="card-body">
                                     <h5 class="card-title" style="font-weight: bold;">{{i.0}}</h5>
                                     <!--재료 받아오기 -->
                                     <p class="card-text">{{i.3}}</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <p class="card-text"><small class="text-muted">{{i.1}}</small></p>
+                                    <p class="card-text"><small class="text-muted sma">Last updated 3 mins ago</small></p>
+                                    <p class="card-text"><small class="text-muted sma">{{i.1}}</small></p>
                                 </div>
                             </a>
                         </div>
@@ -119,6 +174,6 @@
                 </div>
         {%endif%}
     {%endif%}
-
+    {% include 'app/navbar.html' %}
 </body>
 </html>
