@@ -22,7 +22,8 @@ urlpatterns = [
     # path('rb', views.recipeBase, name = "recipeBase"),
     # path('ri', views.recipeIngredient, name = "recipeIngredient"),
     # path('rp', views.recipeProcess, name = "recipeProcess")
-    path('detail', views.detail, name = "detail")
+    path('detail', views.detail, name = "detail"),
+    path('test/',views.jjim)
     
 ]
 

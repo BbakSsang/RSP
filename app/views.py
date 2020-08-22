@@ -692,3 +692,11 @@ def detail(request):
     return render(request, 'app/detail.html', {'process': pLast, 'recipeName': nList[int(pk) -1],
         'menuImage': iList[int(pk)-1], 'level': lList[int(pk)-1], 'summary': sList[int(pk) -1],
         'ingLast': ingLast,'check' : login_check(request),'name': str(request.user)})
+def jjim(request):
+    # test = Jim()
+    # test.custom='사람이름'
+    # test.name = '안녕'
+    # test.img = '이미지'
+    # test.save()
+    hi = Jim.objects.all()
+    return render(request,'app/jjim.html',{'test':hi,'check' : login_check(request),'name': str(request.user)})

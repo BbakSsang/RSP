@@ -16,22 +16,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <title>Document</title>
+  <style>
+    @font-face {
+      font-family: 'Recipekorea';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Handon3gyeopsal600g';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+ }
+             
+    .ingre{
+      color:antiquewhite;
+      
+    }
+    .h3{
+      font-size:2.5rem;
+      font-weight: bold;
+    }
+   
+    .bc{
+      background-color: 
+      #D0D2D2;
+      display:block;
+      max-width: 100%;
+  
+    }
+    .ff{
+      color: black;
+      font-family: 'Recipekorea';
+    }
+    .ff~p{
+      font-size: small;
+    }
+    @font-face {
+      font-family: 'Recipekorea';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      }
+      ul{
+        font-family: 'Handon3gyeopsal600g'!important;
+      }
+      .links{
+        list-style:none;
+      }
+      li {
+        list-style:none;
+      border-radius: 5px;
+      border: 0;
+      display: block;
+      font-family: 'Handon3gyeopsal600g'!important;
+      
+     
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        {{recipeName}}<br>
-        <img src="{{menuImage}}" alt=""><br>
-        {{level}}<br>
-        {{summary}}<br><br>
-        {%for i in process%}
-            {{i}}<br>
-        {%endfor%}
-        <br>
-        재료: 
-        {%for i in ingLast%}
-            {{i}}, 
-        {%endfor%}
-    </div>
+  <div class="container ml-0 mr-0 bc ff">
+    <div class="logo">
+      <svg width="3em" height="3em" viewBox="0 0 16 16" class="icon bi bi-door-closed-fill mt-2 ff"
+      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+        d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+      </svg>
+  </div>
+  <h2 class="mb-0 ff" style="font-family: 'GmarketSansBold';">R.R.Company</h2>
+    <p class="mb-0 ff">Recipes . Request . Company</p>
+    
+  </div>
+  <div class="container ml-0 mr-0 pl-0 pr-0">
+      <div class="h3 mb-3 mt-3 pl-3 pt-3 pb-3 d-flex justify-content-center">
+        RECIPE
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col" style="background-color: black;text-align:center">
+            <div class="h4 mb-3 mt-4 pt-5  d-flex justify-content-center" style="font-weight:bold;font-family: 'Handon3gyeopsal600g'">
+              <{{recipeName}}>
+            </div>
+            <div class="row mb-4 mt-3 pt-3 d-flex justify-content-center" style="text-align:center">
+                  <img src="{{menuImage}}" alt="">
+                  
+            </div>
+            <div class="row mt-4 pt-3 d-flex justify-content-center"style="font-family: 'Handon3gyeopsal600g';">
+              난이도: {{level}}<br>
+              {{summary}}
+            </div>
+            <div class="row pt-3 mt-3">
+              <div class="col"></div>
+              <div class="col"><a href="" type="button" class="btn btn-dark">찜하기</a></div>
+              
+            </div>
+          </div>
+          <div class="col">
+            <div class="row pl-2 ml-2 mt-4 mb-3 d-flex justify-content-center">
+              <div class="container m-3 pb-3">
+                <div class="row pb-2 pt-2 pl-2 border-bottom border-top" style="font-size:20px ;font-family: 'Handon3gyeopsal600g'">재료</div>
+                <div class="row pt-3" style="font-family: 'Handon3gyeopsal600g'">
+                    {%for i in ingLast%}
+                    {{i}}, 
+                    {%endfor%}
+                </div>
+              </div>
+              <div class="container m-3 pb-3">
+                <div class="row pb-2 pt-2 pl-2 border-bottom border-top" style="font-size: 20px;font-family: 'Handon3gyeopsal600g'">조리과정</div>
+                <div class="row pt-3 mt-2" style="font-family: 'Handon3gyeopsal600g'">
+                  {%for i in process%}
+                  <ul>
+                    <li>{{i}}</li>
+                  </ul>
+                  {%endfor%}
+                </div>        
+              </div>
+             
+            </div>
+          </div>
+        </div>
+        
+       
+      </div>
+      
+      
+  </div>
 </body>
 {% include 'app/navbar.html' %}
 </html>

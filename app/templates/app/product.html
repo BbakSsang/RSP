@@ -121,6 +121,11 @@
       color: #fff;
       transform: translateY(-7px);
     }
+    .sch{
+      color: coral;
+      font-size: 1.5em;
+      font-family: 'Recipekorea';
+    }
   </style>
 </head>
 
@@ -138,13 +143,15 @@
     <p class="mb-0 ff">Recipes . Request . Company</p>
     
   </div>
-  <form class="mt-3" action="{%url 'get'%}" method="GET">
+  <div >
+  <form class="mt-3" action="{%url 'get'%}" method="GET" >
     <div class="form-group container irdnt_nm hidden">
       <input class="form-control" type="text" name="irdnt_nm" style="opacity: 0;"placeholder="재료들을 입력해주세요">
     </div>
     <div class="form-group container detail">
+      <p class="col-4 sch mt-2 mb-2">무엇을 찾으세요?</p>
       <select class="form-control mt-1" name="nation_nm">
-        <option value selected disabled>유형분류</option>
+        <option value selected disabled>음식 유형</option>
         <option>한식</option>
         <option>일본</option>
         <option>중국</option>
@@ -154,7 +161,7 @@
         <option>동남아시아</option>
       </select>
       <select class="form-control mt-1" name="level_nm">
-        <option value selected disabled>난이도</option>
+        <option value selected disabled>조리 난이도</option>
         <option>초보환영</option>
         <option>보통</option>
         <option>어려움</option>
@@ -165,6 +172,7 @@
         </div>
     </div>
   </form>
+</div>
 
 
   <div class="container">

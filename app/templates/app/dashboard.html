@@ -1,6 +1,42 @@
+<style>
+   @font-face {
+      font-family: 'Recipekorea';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+   .bc{
+      background-color: 
+      #D0D2D2;
+      display:block;
+      max-width: 100%;
+  
+    }
+    .ff{
+      color: black;
+      font-family: 'Recipekorea';
+      max-width: 100%!important;
+    }
+    .ff~p{
+      font-size: small;
+    }
+</style>
+<div class="container ml-0 mr-0 bc ff">
+   <div class="logo">
+     <svg width="3em" height="3em" viewBox="0 0 16 16" class="icon bi bi-door-closed-fill mt-2 ff"
+     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+       <path fill-rule="evenodd"
+       d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+     </svg>
+ </div>
+ <h2 class="mb-0 ff" style="font-family: 'GmarketSansBold';">R.R.Company</h2>
+   <p class="mb-0 ff">Recipes . Request . Company</p>
+   
+ </div>
 {% extends 'app/main.html' %}
 
 {% block content %}
+
 {% include 'app/status.html' %}
 
 <br>

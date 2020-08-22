@@ -60,4 +60,9 @@ class Detail(models.Model):
     irdnt_nm = models.CharField(max_length=10000) #재료명 #레시피재료정보
     stre_step_image_url = models.CharField(max_length=100000) #과정 이미지 URL #레시피과정정보
 
+class Jim(models.Model):
+	custom = models.CharField(max_length=1000)
+	name = models.CharField(max_length=1000)
+	img = models.CharField(max_length=1000)
+
 

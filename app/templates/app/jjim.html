@@ -7,6 +7,7 @@
     font-weight: normal;
     font-style: normal;
   }
+  
   img{
     max-width: 400x;
     max-height: 250px;
@@ -42,13 +43,20 @@
   .ff{
     color: black;
     font-family: 'Recipekorea';
+    padding: 0%;
+    margin: 0%;
   }
   .ff~p{
     font-size: small;
   }
-  
+  .mine{
+    color: coral;
+    font-family: 'Recipekorea';
+    font-size: 2em;
+    
+  }
 </style>
-<div class="container ml-0 mr-0 bc ff">
+<div class="container ml-0 mr-0 bc ff" >
   <div class="logo">
     <svg width="3em" height="3em" viewBox="0 0 16 16" class="icon bi bi-door-closed-fill mt-2 ff"
     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -60,29 +68,29 @@
   <p class="mb-0 ff">Recipes . Request . Company</p>
   
 </div>
+<div class="container mt-5">
+  <div class="row mine">
+    내 저장 목록 ㅎ
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <p> </p>
   </div>
 </div>
 <div class="container">
-
     <div class="container-fluid mb-5">
         <div class="row mb-5">
-          {%for i in book%}
+          {%for i in test%}
           <div class="container-fluid col-4"style="mt-3">
               <div class="card " style="border: none; color:black;">
-            <a href="{{i.address}}">
-                <img src="{{i.photo}}" class="card-img-top aa" alt="..." >
-            </a>
+                <p>요리사진{{i.name}}</p>
             <div class="card-body" style="height: 10px;">
-              <h5 style="color:black;"class="card-title">{{i.title}}</h5>
+              <h5 style="color:black;"class="card-title">요리명{{i.img}}</h5>
             </div>
             
             <div class="card-a">
               <hr>
-              <h3 style="text-align: right; color:black">{{i.writer}}</h3>
-              <!-- <button type="button" class="btn btn-primary" href="{{i.address}}">Buy</button> -->
             </div></div>
             <br><br><br>
           </div>
@@ -92,49 +100,4 @@
     </div>
   
 </div>
-<!--Zoom effect-->
-<div class="view overlay zoom">
-  <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(131).jpg" class="img-fluid " alt="smaple image">
-  <div class="mask flex-center">
-      <p class="white-text">Zoom effect</p>
-  </div>
-</div>
-
-<div class="view overlay">
-  <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20(3).jpg" class="img-fluid " alt="">
-   <div class="mask rgba-red-strong">
-
-  </div>
-</div>>
 {% endblock %}
-
-<!-- {% include 'app/navbar.html' %}
-
-
-  </div> --> -->
-
-  <!-- <div class="container">
-    <div class="row">
-        {%for a in photo%}
-            <div class="card col-sm-4" style="border: none;">
-                <img src="{{a}}" class="card-img-top scale" alt="...">
-            </div>
-        {%endfor%}
-
-        {%for b in title%}
-            <div class="card col-sm-4" style="border: none;">
-                <h5 class="card-title">{{b}}</h5>
-            </div>
-        {%endfor%}
-
-        {%for c in writer%}
-            <div class="card col-sm-4" style="border: none;">
-                <p class="card-text">{{c}}</p>
-            </div>
-        {%endfor%}
-    </div>
- </div> -->
-
-
- <!--                                  gjsagshjdgjagfajhgs     -->
- 
