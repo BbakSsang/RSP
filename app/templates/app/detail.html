@@ -77,6 +77,8 @@
   </style>
 </head>
 <body>
+  <form action = "get_Jim" method="POST">
+    {%csrf_token%}
   <div class="container ml-0 mr-0 bc ff">
     <div class="logo">
       <svg width="3em" height="3em" viewBox="0 0 16 16" class="icon bi bi-door-closed-fill mt-2 ff"
@@ -98,9 +100,11 @@
           <div class="col" style="background-color: black;text-align:center">
             <div class="h4 mb-3 mt-4 pt-5  d-flex justify-content-center" style="font-weight:bold;font-family: 'Handon3gyeopsal600g'">
               <{{recipeName}}>
+              
             </div>
             <div class="row mb-4 mt-3 pt-3 d-flex justify-content-center" style="text-align:center">
-                  <img src="{{menuImage}}" alt="">
+                  <img src="{{menuImage}}" alt="" name='img' value="{{menuImage}}">
+                  
                   
             </div>
             <div class="row mt-4 pt-3 d-flex justify-content-center"style="font-family: 'Handon3gyeopsal600g';">
@@ -109,7 +113,9 @@
             </div>
             <div class="row pt-3 mt-3">
               <div class="col"></div>
-              <div class="col"><a href="" type="button" class="btn btn-dark">찜하기</a></div>
+              <div class="col"><input type="submit" class="btn btn-dark" value="찜하기"></div>
+              <input type="text" name='id' value='{{recipeName}}' style="visibility: hidden;">
+              <input type = 'text' name = 'img' value="{{menuImage}}" style="visibility: hidden;">
               
             </div>
           </div>
@@ -143,6 +149,7 @@
       
       
   </div>
+</form>
 </body>
 {% include 'app/navbar.html' %}
 </html>

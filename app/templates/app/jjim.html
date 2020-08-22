@@ -55,6 +55,9 @@
     font-size: 2em;
     
   }
+  .hi{
+    width: 100%;
+  }
 </style>
 <div class="container ml-0 mr-0 bc ff" >
   <div class="logo">
@@ -84,9 +87,10 @@
           {%for i in test%}
           <div class="container-fluid col-4"style="mt-3">
               <div class="card " style="border: none; color:black;">
-                <p>요리사진{{i.name}}</p>
+                <p><img src = "{{i.img}}" class="hi"></p>
             <div class="card-body" style="height: 10px;">
-              <h5 style="color:black;"class="card-title">요리명{{i.img}}</h5>
+              <h5 style="color:black;"class="card-title">
+                {{i.name}}</h5>
             </div>
             
             <div class="card-a">

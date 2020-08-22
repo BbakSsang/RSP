@@ -693,13 +693,29 @@ def detail(request):
         'menuImage': iList[int(pk)-1], 'level': lList[int(pk)-1], 'summary': sList[int(pk) -1],
         'ingLast': ingLast,'check' : login_check(request),'name': str(request.user)})
 def jjim(request):
+   
     hi = Jim.objects.all()
-    return render(request,'app/jjim.html',{'test':hi,'check' : login_check(request),'name': str(request.user)})
+    test=[]
+    for i in hi:
+        if(i.custom == (str(request.user))):
+            test.append(i)
+
+    return render(request,'app/jjim.html',{'test':test,'check' : login_check(request),'name': str(request.user)})
 
 def get_Jim(request):
+    print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+
+    test = Jim.objects.all()
+
+    for i in test:
+        if((str(request.user) == i.custom)):
+            if(str(request.POST.get('id')) == i.name):
+                return jjim(request)
+
     kart = Jim()
-    kart.custom = request.user()
-    kart.name = request.get.GET('id')
-    kart.img = request.get.GET('img')
+    kart.custom = str(request.user)
+    kart.name = request.POST.get('id')
+    kart.img = request.POST.get('img')
     kart.save()
+
     return jjim(request)
