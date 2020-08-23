@@ -65,10 +65,10 @@
 									<li><a href="{% url 'register' %}">Sign Up</a></li>
 								{%else%}
 									<li><a href="{% url 'logout' %}">Log Out</a></li>
+									<li><a href="{% url 'getJim' %}">찜목록</a></li>
 								{%endif%}
 					
 								
-								<li><a href="{% url 'user' %}">주문</a></li>
 								{%if check == '3'%}
 									<li><a href="{% url 'adminpage' %}">관리자</a></li>
 								{% endif %}

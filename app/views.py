@@ -711,11 +711,14 @@ def get_Jim(request):
         if((str(request.user) == i.custom)):
             if(str(request.POST.get('id')) == i.name):
                 return jjim(request)
-
-    kart = Jim()
-    kart.custom = str(request.user)
-    kart.name = request.POST.get('id')
-    kart.img = request.POST.get('img')
-    kart.save()
+    try:
+        kart = Jim()
+        kart.custom = str(request.user)
+        kart.name = request.POST.get('id')
+        kart.img = request.POST.get('img')
+        kart.save()
+    except:
+        pass
+    
 
     return jjim(request)
